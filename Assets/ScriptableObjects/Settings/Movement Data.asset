@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb01cc907490284499117bb4066da371, type: 3}
+  m_Name: Movement Data
+  m_EditorClassIdentifier: 
+  gravityScale: 1
+  fallGravityMult: 5
+  quickFallGravityMult: 5
+  dragAmount: 1
+  frictionAmount: 1
+  coyoteTime: 0.1
+  runMaxSpeed: 15
+  runAcceleration: 9
+  runDecceleration: 9
+  accelerationInAir: 1
+  deccelerationInAir: 1
+  accelerationPower: 1
+  stopPower: 1
+  turnPower: 1
+  jumpForce: 20
+  jumpCutMultiplier: 0.4
+  jumpBufferTime: 0.1
+  doKeepRunMomentum: 1
