@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bfc2bc4b02f61642bf17acf6834e68a, type: 3}
-  m_Name: MoveNone
+  m_Script: {fileID: 11500000, guid: 35432205b9a6a374bbbfe6b7cac92179, type: 3}
+  m_Name: Stealth
   m_EditorClassIdentifier: 
-  description: Estar quieto
-  speedMultiplier: 0
+  _actions:
+  - {fileID: 11400000, guid: 3c4737dc6bc1b3b40aeec29bcb8c8ec7, type: 2}

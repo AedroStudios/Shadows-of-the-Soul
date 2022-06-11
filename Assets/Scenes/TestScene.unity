@@ -623,6 +623,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 8053db285e87e6840a34a00f7008a09f, type: 2}
   inputReader: {fileID: 11400000, guid: cc98141dab301c04b8c4351a30ef24ed, type: 2}
+  <IsJumping>k__BackingField: 0
+  <LastOnGroundTime>k__BackingField: 0
+  <MoveInput>k__BackingField: {x: 0, y: 0}
+  <LastPressedJumpTime>k__BackingField: 0
   _groundCheckPoint: {x: 0, y: -0.85, z: 0}
   _groundCheckSize: {x: 0.5, y: 0.5}
   _groundLayer:
