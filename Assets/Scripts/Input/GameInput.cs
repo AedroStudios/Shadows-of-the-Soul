@@ -46,6 +46,15 @@ namespace Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Stealth"",
+                    ""type"": ""Button"",
+                    ""id"": ""b7bd4683-8039-41f8-81ff-a18c3e1548ad"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -180,6 +189,28 @@ namespace Input
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1e44013f-4b28-42ef-a906-9fe1ad352ae1"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Stealth"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""03f92320-8fab-400c-a327-cffb11b1eaaf"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Stealth"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -190,6 +221,7 @@ namespace Input
             m_GamePlay = asset.FindActionMap("GamePlay", throwIfNotFound: true);
             m_GamePlay_Move = m_GamePlay.FindAction("Move", throwIfNotFound: true);
             m_GamePlay_Jump = m_GamePlay.FindAction("Jump", throwIfNotFound: true);
+            m_GamePlay_Stealth = m_GamePlay.FindAction("Stealth", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -251,12 +283,14 @@ namespace Input
         private IGamePlayActions m_GamePlayActionsCallbackInterface;
         private readonly InputAction m_GamePlay_Move;
         private readonly InputAction m_GamePlay_Jump;
+        private readonly InputAction m_GamePlay_Stealth;
         public struct GamePlayActions
         {
             private @GameInput m_Wrapper;
             public GamePlayActions(@GameInput wrapper) { m_Wrapper = wrapper; }
             public InputAction @Move => m_Wrapper.m_GamePlay_Move;
             public InputAction @Jump => m_Wrapper.m_GamePlay_Jump;
+            public InputAction @Stealth => m_Wrapper.m_GamePlay_Stealth;
             public InputActionMap Get() { return m_Wrapper.m_GamePlay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -272,6 +306,9 @@ namespace Input
                     @Jump.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnJump;
                     @Jump.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnJump;
                     @Jump.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnJump;
+                    @Stealth.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnStealth;
+                    @Stealth.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnStealth;
+                    @Stealth.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnStealth;
                 }
                 m_Wrapper.m_GamePlayActionsCallbackInterface = instance;
                 if (instance != null)
@@ -282,6 +319,9 @@ namespace Input
                     @Jump.started += instance.OnJump;
                     @Jump.performed += instance.OnJump;
                     @Jump.canceled += instance.OnJump;
+                    @Stealth.started += instance.OnStealth;
+                    @Stealth.performed += instance.OnStealth;
+                    @Stealth.canceled += instance.OnStealth;
                 }
             }
         }
@@ -290,6 +330,7 @@ namespace Input
         {
             void OnMove(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);
+            void OnStealth(InputAction.CallbackContext context);
         }
     }
 }

@@ -10,6 +10,7 @@ namespace Input
   public class InputReader : ScriptableObject, GameInput.IGamePlayActions
   {
     private GameInput gameInput;
+
     private void OnEnable()
     {
       if (gameInput == null)
@@ -30,6 +31,7 @@ namespace Input
     public event UnityAction JumpEvent = delegate { };
     public event UnityAction JumpCanceledEvent = delegate { };
     public event UnityAction<Vector2> MoveEvent = delegate { };
+    public event UnityAction StealthEvent = delegate { };
 
     public void OnJump(InputAction.CallbackContext context)
     {
@@ -52,6 +54,14 @@ namespace Input
         case InputActionPhase.Canceled:
           MoveEvent.Invoke(context.ReadValue<Vector2>());
           break;
+      }
+    }
+
+    public void OnStealth(InputAction.CallbackContext context)
+    {
+      if (InputActionPhase.Started == context.phase)
+      {
+        StealthEvent.Invoke();
       }
     }
     #endregion
