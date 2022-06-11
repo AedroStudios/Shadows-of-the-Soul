@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using StateMachine.ScriptableObjects;
+using FSM.ScriptableObjects;
 
-namespace StateMachine.Editor
+namespace FSM.Editor
 {
 	internal class TransitionTableEditorWindow : EditorWindow
 	{

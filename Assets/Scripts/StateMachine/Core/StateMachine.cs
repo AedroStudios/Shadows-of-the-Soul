@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace StateMachine
+namespace FSM
 {
+  [AddComponentMenu("State Machine/State Machine")]
 	public class StateMachine : MonoBehaviour
 	{
 		[Tooltip("Set the initial state of this StateMachine")]

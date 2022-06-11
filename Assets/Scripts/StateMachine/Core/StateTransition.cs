@@ -1,4 +1,4 @@
-﻿namespace StateMachine
+﻿namespace FSM
 {
 	public class StateTransition : IStateComponent
 	{

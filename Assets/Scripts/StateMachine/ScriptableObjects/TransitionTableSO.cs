@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using StateMachine;
+using FSM;
 
-namespace StateMachine.ScriptableObjects
+namespace FSM.ScriptableObjects
 {
 	[CreateAssetMenu(fileName = "NewTransitionTable", menuName = "State Machines/Transition Table")]
 	public class TransitionTableSO : ScriptableObject

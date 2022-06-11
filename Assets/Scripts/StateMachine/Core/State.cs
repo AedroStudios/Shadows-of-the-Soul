@@ -1,6 +1,6 @@
-﻿using StateMachine.ScriptableObjects;
+﻿using FSM.ScriptableObjects;
 
-namespace StateMachine
+namespace FSM
 {
   public class State
   {

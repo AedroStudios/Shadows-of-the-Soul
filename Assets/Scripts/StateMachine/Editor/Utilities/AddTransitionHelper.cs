@@ -2,10 +2,10 @@
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
-using StateMachine.ScriptableObjects;
+using FSM.ScriptableObjects;
 using static UnityEditor.EditorGUI;
 
-namespace StateMachine.Editor
+namespace FSM.Editor
 {
 	internal class AddTransitionHelper : IDisposable
 	{

@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace StateMachine.Editor
+namespace FSM.Editor
 {
 	[CustomPropertyDrawer(typeof(InitOnlyAttribute))]
 	public class InitOnlyAttributeDrawer : PropertyDrawer

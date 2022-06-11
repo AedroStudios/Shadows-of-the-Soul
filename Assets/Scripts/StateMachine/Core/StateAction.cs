@@ -1,6 +1,6 @@
-﻿using StateMachine.ScriptableObjects;
+﻿using FSM.ScriptableObjects;
 
-namespace StateMachine
+namespace FSM
 {
 	/// <summary>
 	/// An object representing an action.
@@ -17,11 +17,11 @@ namespace StateMachine
 		/// <summary>
 		/// Called every frame the <see cref="StateMachine"/> is in a <see cref="State"/> with this <see cref="StateAction"/>.
 		/// </summary>
-		public abstract void OnUpdate();
+		public virtual void OnUpdate() { }
     	/// <summary>
 		/// Called every physis frame the <see cref="StateMachine"/> is in a <see cref="State"/> with this <see cref="StateAction"/>.
 		/// </summary>
-    public abstract void OnFixedUpdate();
+    public virtual void OnFixedUpdate() { }
 
 		/// <summary>
 		/// Awake is called when creating a new instance. Use this method to cache the components needed for the action.

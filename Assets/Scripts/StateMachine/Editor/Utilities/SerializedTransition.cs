@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 
-namespace StateMachine.Editor
+namespace FSM.Editor
 {
 	internal readonly struct SerializedTransition
 	{

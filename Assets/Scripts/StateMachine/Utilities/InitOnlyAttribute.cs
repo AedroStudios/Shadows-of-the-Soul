@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace StateMachine
+namespace FSM
 {
 	[AttributeUsage(AttributeTargets.Field)]
 	public class InitOnlyAttribute : PropertyAttribute { }

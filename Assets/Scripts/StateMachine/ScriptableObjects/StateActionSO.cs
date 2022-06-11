@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace StateMachine.ScriptableObjects
+namespace FSM.ScriptableObjects
 {
 	public abstract class StateActionSO : DescriptionSMActionBaseSO
 	{

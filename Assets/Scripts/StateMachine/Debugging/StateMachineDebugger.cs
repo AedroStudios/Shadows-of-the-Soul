@@ -4,7 +4,7 @@ using System;
 using System.Text;
 using UnityEngine;
 
-namespace StateMachine.Debugging
+namespace FSM.Debugging
 {
 	/// <summary>
 	/// Class specialized in debugging the state transitions, should only be used while in editor mode.

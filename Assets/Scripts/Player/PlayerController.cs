@@ -12,13 +12,16 @@ public class PlayerController : MonoBehaviour
 
   #region STATE PARAMETERS
   public bool IsFacingRight { get; private set; }
+  [field: SerializeField]
   public bool IsJumping { get; private set; }
-
+  [field: SerializeField]
   public float LastOnGroundTime { get; private set; }
   #endregion
 
   #region INPUT PARAMETERS
+  [field: SerializeField]
   public Vector2 MoveInput { get; private set; }
+  [field: SerializeField]
   public float LastPressedJumpTime { get; private set; }
   #endregion
 
@@ -91,7 +94,6 @@ public class PlayerController : MonoBehaviour
     if (CanJump() && LastPressedJumpTime > 0)
     {
       IsJumping = true;
-      Jump();
     }
     #endregion
   }
@@ -103,10 +105,6 @@ public class PlayerController : MonoBehaviour
       Drag(data.dragAmount);
     else
       Drag(data.frictionAmount);
-    #endregion
-
-    #region RUN
-    Run(1);
     #endregion
   }
 
@@ -135,6 +133,10 @@ public class PlayerController : MonoBehaviour
     RB.gravityScale = scale;
   }
 
+  /// <summary>
+  /// Stop the player movement when is not moving
+  /// </summary>
+  /// <param name="amount"></param>
   private void Drag(float amount)
   {
     Vector2 force = amount * RB.velocity.normalized;
@@ -146,7 +148,7 @@ public class PlayerController : MonoBehaviour
     RB.AddForce(-force, ForceMode2D.Impulse); //applies force against movement direction
   }
 
-  private void Run(float lerpAmount)
+  public void Run(float multiplier = 1,float lerpAmount = 1)
   {
     float targetSpeed = MoveInput.x * data.runMaxSpeed; //calculate the direction we want to move in and our desired velocity
     float speedDif = targetSpeed - RB.velocity.x; //calculate difference between current velocity and desired velocity
@@ -187,7 +189,7 @@ public class PlayerController : MonoBehaviour
     float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
     movement = Mathf.Lerp(RB.velocity.x, movement, lerpAmount); // lerp so that we can prevent the Run from immediately slowing the player down, in some situations eg wall jump, dash 
 
-    RB.AddForce(movement * Vector2.right); // applies force force to rigidbody, multiplying by Vector2.right so that it only affects X axis 
+    RB.AddForce(movement * multiplier * Vector2.right); // applies force force to rigidbody, multiplying by Vector2.right so that it only affects X axis 
 
     if (MoveInput.x != 0)
       CheckDirectionToFace(MoveInput.x > 0);
@@ -204,7 +206,7 @@ public class PlayerController : MonoBehaviour
     IsFacingRight = !IsFacingRight;
   }
 
-  private void Jump()
+  public void Jump()
   {
     //ensures we can't call a jump multiple times from one press
     LastPressedJumpTime = 0;
@@ -219,7 +221,7 @@ public class PlayerController : MonoBehaviour
     #endregion
   }
 
-  private void JumpCut()
+  public void JumpCut()
   {
     //applies force downward when the jump button is released. Allowing the player to control jump height
     RB.AddForce(Vector2.down * RB.velocity.y * (1 - data.jumpCutMultiplier), ForceMode2D.Impulse);

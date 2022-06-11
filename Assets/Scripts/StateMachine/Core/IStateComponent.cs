@@ -1,4 +1,4 @@
-﻿namespace StateMachine
+﻿namespace FSM
 {
 	interface IStateComponent
 	{

@@ -1,6 +1,6 @@
 using UnityEngine;
-using UOP1.StateMachine;
-using UOP1.StateMachine.ScriptableObjects;
+using FSM;
+using FSM.ScriptableObjects;
 
 [CreateAssetMenu(fileName = "#RUNTIMENAME#", menuName = "State Machines/Conditions/#RUNTIMENAME_WITH_SPACES#")]
 public class #SCRIPTNAME# : StateConditionSO

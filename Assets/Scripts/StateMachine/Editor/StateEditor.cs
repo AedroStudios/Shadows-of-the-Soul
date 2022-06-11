@@ -1,9 +1,9 @@
 ﻿using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
-using StateMachine.ScriptableObjects;
+using FSM.ScriptableObjects;
 
-namespace StateMachine.Editor
+namespace FSM.Editor
 {
 	[CustomEditor(typeof(StateSO))]
 	public class StateEditor : UnityEditor.Editor

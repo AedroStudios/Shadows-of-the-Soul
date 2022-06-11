@@ -2,11 +2,11 @@
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-using StateMachine.ScriptableObjects;
+using FSM.ScriptableObjects;
 using static UnityEditor.EditorGUILayout;
 using Object = UnityEngine.Object;
 
-namespace StateMachine.Editor
+namespace FSM.Editor
 {
 	[CustomEditor(typeof(TransitionTableSO))]
 	internal class TransitionTableEditor : UnityEditor.Editor

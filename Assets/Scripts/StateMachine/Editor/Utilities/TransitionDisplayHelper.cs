@@ -3,7 +3,7 @@ using UnityEditorInternal;
 using UnityEngine;
 using static UnityEditor.EditorGUI;
 
-namespace StateMachine.Editor
+namespace FSM.Editor
 {
 	internal class TransitionDisplayHelper
 	{

@@ -1,6 +1,6 @@
-﻿using StateMachine.ScriptableObjects;
+﻿using FSM.ScriptableObjects;
 
-namespace StateMachine
+namespace FSM
 {
 	/// <summary>
 	/// Class that represents a conditional statement.

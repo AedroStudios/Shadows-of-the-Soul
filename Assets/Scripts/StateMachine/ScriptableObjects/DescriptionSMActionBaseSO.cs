@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace StateMachine.ScriptableObjects
+namespace FSM.ScriptableObjects
 {
 	/// <summary>
 	/// Base class for StateMachine ScriptableObjects that need a public description field.
