@@ -12,22 +12,23 @@ public class IsStealthPressedSO : StateConditionSO<IsStealthPressed>
 public class IsStealthPressed : Condition
 {
   protected new IsStealthPressedSO OriginSO => (IsStealthPressedSO)base.OriginSO;
-  InputReader Input { get => OriginSO.inputReader; }
-  bool isStealthPressed;
+  private InputReader Input { get => OriginSO.inputReader; }
+  private bool _isStealthPressed;
 
   public override void Awake(StateMachine stateMachine)
 	{
-    Input.StealthEvent += () => { isStealthPressed = true; };
+    Input.StealthEvent += () => { _isStealthPressed = true; };
 	}
 	
 	protected override bool Statement()
 	{
-    if (isStealthPressed)
+    if (!_isStealthPressed)
     {
-      isStealthPressed = false; // Clean cache
-      return true;
+      return false;
     }
 
-    return false;
-	}
+    _isStealthPressed = false; // Clean cache
+    return true;
+
+  }
 }
