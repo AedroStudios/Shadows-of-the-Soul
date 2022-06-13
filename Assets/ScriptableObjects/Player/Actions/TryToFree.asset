@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bfc2bc4b02f61642bf17acf6834e68a, type: 3}
-  m_Name: MoveNone
+  m_Script: {fileID: 11500000, guid: ec3b4d5d4bcb80045bf995d035aa0ffd, type: 3}
+  m_Name: TryToFree
   m_EditorClassIdentifier: 
-  description: Estar quieto
-  speedMultiplier: 0
+  description: Tratar de liberar cuando esta agarrado
+  input: {fileID: 11400000, guid: cc98141dab301c04b8c4351a30ef24ed, type: 2}
+  resistance: 4
+  resistanceRuntime: 0

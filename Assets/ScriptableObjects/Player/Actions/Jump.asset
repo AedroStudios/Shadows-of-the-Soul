@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b25d183165ee64ebcce39d9ff93a27, type: 3}
   m_Name: Jump
   m_EditorClassIdentifier: 
-  description: 'Normal Jump
-
-'
+  description: Salto normal
