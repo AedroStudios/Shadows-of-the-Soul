@@ -55,6 +55,15 @@ namespace Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Let Go When Is Caught"",
+                    ""type"": ""Button"",
+                    ""id"": ""936cba13-b852-4d9f-8bd3-80b6bb3de67b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -211,6 +220,28 @@ namespace Input
                     ""action"": ""Stealth"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a83b19f5-2ff8-4025-94a6-bccf6779cb8f"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Let Go When Is Caught"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6aa3bd7f-1ed4-4363-8e8a-82fa56b7c3ec"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Let Go When Is Caught"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -222,6 +253,7 @@ namespace Input
             m_GamePlay_Move = m_GamePlay.FindAction("Move", throwIfNotFound: true);
             m_GamePlay_Jump = m_GamePlay.FindAction("Jump", throwIfNotFound: true);
             m_GamePlay_Stealth = m_GamePlay.FindAction("Stealth", throwIfNotFound: true);
+            m_GamePlay_LetGoWhenIsCaught = m_GamePlay.FindAction("Let Go When Is Caught", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -284,6 +316,7 @@ namespace Input
         private readonly InputAction m_GamePlay_Move;
         private readonly InputAction m_GamePlay_Jump;
         private readonly InputAction m_GamePlay_Stealth;
+        private readonly InputAction m_GamePlay_LetGoWhenIsCaught;
         public struct GamePlayActions
         {
             private @GameInput m_Wrapper;
@@ -291,6 +324,7 @@ namespace Input
             public InputAction @Move => m_Wrapper.m_GamePlay_Move;
             public InputAction @Jump => m_Wrapper.m_GamePlay_Jump;
             public InputAction @Stealth => m_Wrapper.m_GamePlay_Stealth;
+            public InputAction @LetGoWhenIsCaught => m_Wrapper.m_GamePlay_LetGoWhenIsCaught;
             public InputActionMap Get() { return m_Wrapper.m_GamePlay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -309,6 +343,9 @@ namespace Input
                     @Stealth.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnStealth;
                     @Stealth.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnStealth;
                     @Stealth.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnStealth;
+                    @LetGoWhenIsCaught.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnLetGoWhenIsCaught;
+                    @LetGoWhenIsCaught.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnLetGoWhenIsCaught;
+                    @LetGoWhenIsCaught.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnLetGoWhenIsCaught;
                 }
                 m_Wrapper.m_GamePlayActionsCallbackInterface = instance;
                 if (instance != null)
@@ -322,6 +359,9 @@ namespace Input
                     @Stealth.started += instance.OnStealth;
                     @Stealth.performed += instance.OnStealth;
                     @Stealth.canceled += instance.OnStealth;
+                    @LetGoWhenIsCaught.started += instance.OnLetGoWhenIsCaught;
+                    @LetGoWhenIsCaught.performed += instance.OnLetGoWhenIsCaught;
+                    @LetGoWhenIsCaught.canceled += instance.OnLetGoWhenIsCaught;
                 }
             }
         }
@@ -331,6 +371,7 @@ namespace Input
             void OnMove(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);
             void OnStealth(InputAction.CallbackContext context);
+            void OnLetGoWhenIsCaught(InputAction.CallbackContext context);
         }
     }
 }

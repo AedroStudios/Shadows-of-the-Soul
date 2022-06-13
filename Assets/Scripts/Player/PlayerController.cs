@@ -139,9 +139,10 @@ public class PlayerController : MonoBehaviour
   /// <param name="amount"></param>
   private void Drag(float amount)
   {
-    Vector2 force = amount * RB.velocity.normalized;
-    force.x = Mathf.Min(Mathf.Abs(RB.velocity.x), Mathf.Abs(force.x)); //ensures we only slow the player down, if the player is going really slowly we just apply a force stopping them
-    force.y = Mathf.Min(Mathf.Abs(RB.velocity.y), Mathf.Abs(force.y));
+    var velocity = RB.velocity;
+    Vector2 force = amount * velocity.normalized;
+    force.x = Mathf.Min(Mathf.Abs(velocity.x), Mathf.Abs(force.x)); //ensures we only slow the player down, if the player is going really slowly we just apply a force stopping them
+    force.y = Mathf.Min(Mathf.Abs(velocity.y), Mathf.Abs(force.y));
     force.x *= Mathf.Sign(RB.velocity.x); //finds direction to apply force
     force.y *= Mathf.Sign(RB.velocity.y);
 

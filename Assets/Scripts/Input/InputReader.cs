@@ -28,10 +28,12 @@ namespace Input
     }
 
     #region GamePlayInputs
+
     public event UnityAction JumpEvent = delegate { };
     public event UnityAction JumpCanceledEvent = delegate { };
     public event UnityAction<Vector2> MoveEvent = delegate { };
     public event UnityAction StealthEvent = delegate { };
+    public event UnityAction LetGoIfCaughtEvent = delegate { };
 
     public void OnJump(InputAction.CallbackContext context)
     {
@@ -64,6 +66,15 @@ namespace Input
         StealthEvent.Invoke();
       }
     }
+
+    public void OnLetGoWhenIsCaught(InputAction.CallbackContext context)
+    {
+      if (InputActionPhase.Started == context.phase)
+      {
+        LetGoIfCaughtEvent.Invoke();
+      }
+    }
     #endregion
+
   }
 }
