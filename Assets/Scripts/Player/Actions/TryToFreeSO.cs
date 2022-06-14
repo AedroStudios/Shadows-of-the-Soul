@@ -3,8 +3,6 @@ using Events.ScriptableObjects;
 using UnityEngine;
 using FSM;
 using FSM.ScriptableObjects;
-using System;
-using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "TryToFree", menuName = "Player/Actions/Try To Free")]
 public class TryToFreeSO : StateActionSO<TryToFree>
