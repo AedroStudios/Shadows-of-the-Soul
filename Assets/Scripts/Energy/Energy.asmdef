@@ -1,10 +1,7 @@
 {
-    "name": "Player",
+    "name": "Energy",
     "rootNamespace": "",
     "references": [
-        "GUID:784148ec08432ab4a974dd364656dae9",
-        "GUID:8c6d909f795daa54ca58de81ed18d10e",
-        "GUID:96e8299971d21aa419285aa17d699f7b",
         "GUID:6e80ba9b150bf3e428f221a05f7ba5b0"
     ],
     "includePlatforms": [],
