@@ -16,5 +16,5 @@ MonoBehaviour:
   input: {fileID: 11400000, guid: cc98141dab301c04b8c4351a30ef24ed, type: 2}
   playerReleasedEvent: {fileID: 11400000, guid: 0443fedef76548c4d9cfb7471af9ce4c, type: 2}
   resistance: 4
-  resistanceRuntime: -4
+  resistanceRuntime: -1
   freePower: 1
