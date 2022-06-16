@@ -10,6 +10,7 @@ namespace Energy
     [SerializeField] private FloatVariable _maxDistanceToGiveEnergy;
     [SerializeField] private GameObject _energyBallPrefab;
 
+    public bool IsWithMaxEnergy => ActualEnergyValue >= MaxEnergyValue;
     private void Update()
     {
       _actualEnergy.Value = _actualEnergyAmount;
@@ -18,6 +19,7 @@ namespace Energy
     public void DropEnergy(int amount)
     {
       ActualEnergyValue -= amount;
+      // TODO: Funcion que causa problemas de rendimiento lo de abajo Pasar a factory
       var newEnergyBall = Instantiate(_energyBallPrefab, transform.position, Quaternion.identity);
       newEnergyBall.GetComponent<EnergyBall>().ActualEnergyValue = amount;
     }
@@ -27,10 +29,14 @@ namespace Energy
       var closestColliders = Physics2D.OverlapCircleAll(transform.position, _maxDistanceToGiveEnergy.Value);
       if (closestColliders.Length == 0) return;
       var closestPerson = GetClosestPerson(closestColliders);
-      if (closestPerson == null) DropEnergy(_giveEnergyAmount.Value);
-      else if (closestPerson.ActualEnergyValue >= closestPerson.MaxEnergyValue) DropEnergy(_giveEnergyAmount.Value);
+      if (!closestPerson ||closestPerson.IsWithMaxEnergy)
+      {
+        DropEnergy(_giveEnergyAmount.Value);
+      }
       else GiveEnergy(_giveEnergyAmount.Value, closestPerson);
     }
+
+
     private EnergyPerson GetClosestPerson(Collider2D[] colliders)
     {
       EnergyPerson closestPerson = null;

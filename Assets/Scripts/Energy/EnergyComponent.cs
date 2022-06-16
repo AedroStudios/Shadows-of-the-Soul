@@ -29,9 +29,13 @@ namespace Energy
     {
       int excessEnergy = 0;
       int totalEnergy = receptor.ActualEnergyValue + amount;
-      if (totalEnergy > receptor.MaxEnergyValue) excessEnergy = totalEnergy - receptor.MaxEnergyValue;
+      
+      if (totalEnergy > receptor.MaxEnergyValue) 
+        excessEnergy = totalEnergy - receptor.MaxEnergyValue;
+      
       amount -= excessEnergy;
       if (amount <= 0 || amount > ActualEnergyValue) return;
+      
       ActualEnergyValue -= amount;
       receptor.ReceiveEnergy(amount);
     }
