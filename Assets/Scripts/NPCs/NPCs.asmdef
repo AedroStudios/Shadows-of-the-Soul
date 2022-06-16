@@ -1,9 +1,9 @@
 {
-    "name": "Energy",
+    "name": "NPCs",
     "rootNamespace": "",
     "references": [
         "GUID:6e80ba9b150bf3e428f221a05f7ba5b0",
-        "GUID:dbd9a7313cf90264689bc43fad1f6183"
+        "GUID:4748d1b1ac0f53f438429210003f1b1d"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

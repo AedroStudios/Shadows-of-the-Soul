@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88e7e13d2f72ea644b3705a37e86c6eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 774539a0b00ca024595c2507ddd05ca1, type: 3}
   m_Name: PlayerMaxEnergy
   m_EditorClassIdentifier: 
-  _value: 100
+  <Value>k__BackingField: 100
