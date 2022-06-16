@@ -12,7 +12,7 @@ namespace Energy
     private void GiveEnergyToPerson(EnergyPerson person)
     {
       GiveEnergy(_actualEnergyAmount, person);
-      // Hacer pool con los objetos de este tipo y añadirlo al pool, de mientras utilizo Destroy().
+      // TODO: Hacer pool con los objetos de este tipo y añadirlo al pool, de mientras utilizo Destroy().
       if (_actualEnergyAmount <= 0) Destroy(gameObject);
     }
   }

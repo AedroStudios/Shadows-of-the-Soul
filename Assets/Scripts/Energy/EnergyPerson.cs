@@ -21,7 +21,7 @@ namespace Energy
       var newEnergyBall = Instantiate(_energyBallPrefab, transform.position, Quaternion.identity);
       newEnergyBall.GetComponent<EnergyBall>().ActualEnergyValue = amount;
     }
-    // CREAR ACCION DEL PERSONAJE Y DE LOS NPCs DE ESTO.
+    // TODO: CREAR ACCION DEL PERSONAJE Y DE LOS NPCs DE ESTO.
     public void GiveEnergyToClosestPerson()
     {
       var closestColliders = Physics2D.OverlapCircleAll(transform.position, _maxDistanceToGiveEnergy.Value);
@@ -39,7 +39,7 @@ namespace Energy
         if (colliders[0].TryGetComponent(out closestPerson)) return closestPerson;
         else return null;
       }
-      foreach (var collider in colliders)
+      foreach (var collider in colliders) // TODO: Cambiar a for
       {
         collider.TryGetComponent(out EnergyPerson person);
         // Comprobaciones, coger el más cercano.
