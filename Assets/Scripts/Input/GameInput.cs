@@ -64,6 +64,15 @@ namespace Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Drop Energy"",
+                    ""type"": ""Button"",
+                    ""id"": ""7d14e2ae-3db3-4242-89b5-7541e2d8bc57"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -242,6 +251,28 @@ namespace Input
                     ""action"": ""Let Go When Is Caught"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1d21dcaa-1a7c-40d5-98ed-2b2ca5d3fae1"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drop Energy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""25ddf06c-2748-48e0-b6ac-79416a5cd694"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drop Energy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -254,6 +285,7 @@ namespace Input
             m_GamePlay_Jump = m_GamePlay.FindAction("Jump", throwIfNotFound: true);
             m_GamePlay_Stealth = m_GamePlay.FindAction("Stealth", throwIfNotFound: true);
             m_GamePlay_LetGoWhenIsCaught = m_GamePlay.FindAction("Let Go When Is Caught", throwIfNotFound: true);
+            m_GamePlay_DropEnergy = m_GamePlay.FindAction("Drop Energy", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -317,6 +349,7 @@ namespace Input
         private readonly InputAction m_GamePlay_Jump;
         private readonly InputAction m_GamePlay_Stealth;
         private readonly InputAction m_GamePlay_LetGoWhenIsCaught;
+        private readonly InputAction m_GamePlay_DropEnergy;
         public struct GamePlayActions
         {
             private @GameInput m_Wrapper;
@@ -325,6 +358,7 @@ namespace Input
             public InputAction @Jump => m_Wrapper.m_GamePlay_Jump;
             public InputAction @Stealth => m_Wrapper.m_GamePlay_Stealth;
             public InputAction @LetGoWhenIsCaught => m_Wrapper.m_GamePlay_LetGoWhenIsCaught;
+            public InputAction @DropEnergy => m_Wrapper.m_GamePlay_DropEnergy;
             public InputActionMap Get() { return m_Wrapper.m_GamePlay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -346,6 +380,9 @@ namespace Input
                     @LetGoWhenIsCaught.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnLetGoWhenIsCaught;
                     @LetGoWhenIsCaught.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnLetGoWhenIsCaught;
                     @LetGoWhenIsCaught.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnLetGoWhenIsCaught;
+                    @DropEnergy.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnDropEnergy;
+                    @DropEnergy.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnDropEnergy;
+                    @DropEnergy.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnDropEnergy;
                 }
                 m_Wrapper.m_GamePlayActionsCallbackInterface = instance;
                 if (instance != null)
@@ -362,6 +399,9 @@ namespace Input
                     @LetGoWhenIsCaught.started += instance.OnLetGoWhenIsCaught;
                     @LetGoWhenIsCaught.performed += instance.OnLetGoWhenIsCaught;
                     @LetGoWhenIsCaught.canceled += instance.OnLetGoWhenIsCaught;
+                    @DropEnergy.started += instance.OnDropEnergy;
+                    @DropEnergy.performed += instance.OnDropEnergy;
+                    @DropEnergy.canceled += instance.OnDropEnergy;
                 }
             }
         }
@@ -372,6 +412,7 @@ namespace Input
             void OnJump(InputAction.CallbackContext context);
             void OnStealth(InputAction.CallbackContext context);
             void OnLetGoWhenIsCaught(InputAction.CallbackContext context);
+            void OnDropEnergy(InputAction.CallbackContext context);
         }
     }
 }
