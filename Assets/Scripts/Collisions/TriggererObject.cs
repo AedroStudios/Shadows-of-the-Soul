@@ -6,7 +6,8 @@ namespace CollisionsDetection
   {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-      if (collision.TryGetComponent<ITriggerable>(out var collisionableObject)) collisionableObject.ShotTrigger(GetComponent<Collider2D>());
+      if (collision.TryGetComponent<ITriggerable>(out ITriggerable collisionObject)) 
+        collisionObject.ShotTrigger(GetComponent<Collider2D>());
     }
   }
 }

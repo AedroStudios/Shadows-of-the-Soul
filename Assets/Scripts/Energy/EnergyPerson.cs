@@ -36,13 +36,12 @@ namespace Energy
       EnergyPerson closestPerson = null;
       if (colliders.Length == 1)
       {
-        if (colliders[0].TryGetComponent(out closestPerson)) return closestPerson;
-        else return null;
+        return colliders[0].TryGetComponent(out closestPerson) ? closestPerson : null;
       }
       foreach (var collider in colliders)
       {
         collider.TryGetComponent(out EnergyPerson person);
-        // Comprobaciones, coger el más cercano.
+        // Comprobaciones, coger el mï¿½s cercano.
         closestPerson = person ? (!closestPerson ? person :
           Vector3.Distance(closestPerson.transform.position, transform.position) >
           Vector3.Distance(person.transform.position, transform.position) ? person : closestPerson) : closestPerson;

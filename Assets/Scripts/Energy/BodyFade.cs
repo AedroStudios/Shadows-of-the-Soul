@@ -7,7 +7,8 @@ namespace Energy
   {
     #region VALUES
     private Material _bodyFadeMat;
-    [SerializeField] private IntReference _maxEnergy, _actualEnergy;
+    [SerializeField] private IntReference _maxEnergy;
+    [SerializeField] private IntReference _actualEnergy;
     #endregion
 
     private void Awake()
