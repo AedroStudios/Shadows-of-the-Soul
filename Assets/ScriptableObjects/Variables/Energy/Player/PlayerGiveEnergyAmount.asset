@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 774539a0b00ca024595c2507ddd05ca1, type: 3}
   m_Name: PlayerGiveEnergyAmount
   m_EditorClassIdentifier: 
-  <Value>k__BackingField: 0
+  <Value>k__BackingField: 10

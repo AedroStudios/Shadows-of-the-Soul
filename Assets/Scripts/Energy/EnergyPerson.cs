@@ -14,7 +14,19 @@ namespace Energy
     {
       _actualEnergy.Value = _actualEnergyAmount;
     }
-
+    public bool CanDoAction(int requiredAmount) //TODO: Usar esto para el ataque
+    {
+      if (ActualEnergyValue < requiredAmount) return false;
+      else
+      {
+        DoAction(requiredAmount);
+        return true;
+      }
+    }
+    private void DoAction(int amount)
+    {
+      ActualEnergyValue -= amount;
+    }
     public void DropEnergy(int amount)
     {
       ActualEnergyValue -= amount;
