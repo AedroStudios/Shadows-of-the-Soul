@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,6 +35,9 @@ namespace Input
     public event UnityAction<Vector2> MoveEvent = delegate { };
     public event UnityAction StealthEvent = delegate { };
     public event UnityAction LetGoIfCaughtEvent = delegate { };
+    public event UnityAction DropEnergyPressed = delegate { };
+    public event UnityAction DropEnergyReleased = delegate { };
+
 
     public void OnJump(InputAction.CallbackContext context)
     {
@@ -74,6 +78,25 @@ namespace Input
         LetGoIfCaughtEvent.Invoke();
       }
     }
+
+    public void OnDropEnergy(InputAction.CallbackContext context)
+    {
+      switch (context.phase)
+      {
+       case InputActionPhase.Started:
+         DropEnergyPressed.Invoke();
+         break;
+       case InputActionPhase.Canceled:
+         DropEnergyReleased.Invoke();
+         break;
+       case InputActionPhase.Disabled:
+       case InputActionPhase.Waiting:
+       case InputActionPhase.Performed:
+       default:
+         break;
+      }
+    }
+
     #endregion
 
   }
